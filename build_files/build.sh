@@ -5,6 +5,18 @@ set -ouex pipefail
 # Copy the contents of system_files/ of the git repo to /
 cp -avf "/ctx/system_files"/. /
 
+# Enforce cosign signature verification for this image's own registry
+# namespace, same as ublue does for ghcr.io/ublue-os in the base policy.json
+# (system_files placed the key at /etc/pki/containers/picardas.pub and the
+# matching registries.d entry already; this just merges the policy rule in
+# rather than overwriting the file, so ublue's own entries are kept intact)
+jq '.transports.docker["ghcr.io/picardas"] = [{
+        "type": "sigstoreSigned",
+        "keyPath": "/etc/pki/containers/picardas.pub",
+        "signedIdentity": {"type": "matchRepository"}
+    }]' /etc/containers/policy.json > /tmp/policy.json.new
+mv /tmp/policy.json.new /etc/containers/policy.json
+
 ### Install packages
 
 # Packages can be installed from any enabled yum repo on the image.
