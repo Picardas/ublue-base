@@ -42,10 +42,13 @@ flatpak install flathub \
     org.gnome.baobab \
     org.gnome.clocks \
     org.gnome.font-viewer \
+    net.nokyan.Resources \
     io.github.kolunmi.Bazaar \
     page.tesk.Refine \
     com.mattjakeman.ExtensionManager \
     com.vysp3r.ProtonPlus
+    org.gtk.Gtk3theme.adw-gtk3
+    org.gtk.Gtk3theme.adw-gtk3-dark
 ```
 
 ## NVIDIA + secure boot
