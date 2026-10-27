@@ -78,7 +78,7 @@ rm -f /tmp/gcm.tar.gz
 # Mosaic WM GNOME Shell extension, system-wide, enabled by default
 MOSAIC_UUID="mosaicwm@cleomenezesjr.github.io"
 MOSAIC_DIR="/usr/share/gnome-shell/extensions/${MOSAIC_UUID}"
-curl -fsSL -o /tmp/mosaicwm.tar.gz https://github.com/CleoMenezesJr/MosaicWM/archive/refs/heads/main.tar.gz
+curl -fsSL -o /tmp/mosaicwm.tar.gz https://github.com/CleoMenezesJr/MosaicWM/archive/gnome-50.tar.gz
 mkdir -p /tmp/mosaicwm-src
 tar --no-same-owner -xzf /tmp/mosaicwm.tar.gz -C /tmp/mosaicwm-src --strip-components=1
 mkdir -p "${MOSAIC_DIR}"
